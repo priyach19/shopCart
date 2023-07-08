@@ -39,14 +39,20 @@ function CustomItemContext({children}){
         
     }
 
-    const handleRemove=(price)=>{
-        if(total<=0){
-            return
-        }
-        setTotal((prevState=>prevState-price));
+    const handleRemove=(id)=>{
+      const index=cart.findIndex((item)=>item.id===id);
+      if(index!==-1){
+        cart[index].qty--;
         setItem(item-1);
+        setTotal(total-cart[index].price)
+        if(cart[index].qty===0){
+            cart.splice(index,1)
+        }
+       }
+        setCart(cart);
+      
+      
     }
-
     const clear=()=>{
         setTotal(0);
         setItem(0);
