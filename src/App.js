@@ -14,7 +14,7 @@ function App() {
          
 {/* <itemContext.Provider value={{total,setTotal}}>-->this is used when creating one context for item and total  */}
     <div className='App'>
-      <h2>Shopping Cart</h2>
+      <h1>Shopping Cart</h1>
       
       <Navbar/>
       <Items/>

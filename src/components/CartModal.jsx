@@ -1,20 +1,24 @@
 import React from "react";
 //import { useValue } from "../itemContext";
 import styles from './styles/CartModal.module.css';
+//using custom provider 
 import {useValue} from '../itemContext';
 
-function CartModal({ toggle }) {
-    const {cart,total,clear}=useValue();
-    console.log(cart);
+function CartModal() {
+  //destructuring props 
+    const {cart,total,clear, toggle}=useValue();
+   // console.log(cart);
   return (
+    //clear button on cart page
     <div className={styles.cartModal}>
       <div className={styles.closeButton} >
         <button onClick={toggle}>Close</button>
-    
       </div>
+      {/* close button on cart page */}
       <div className={styles.clearButton}>
          <button onClick={clear}>Clear</button>
-         </div>
+      </div>
+      {/* container on which selected products are shown */}
       <div className={styles.itemContainer}>
         {cart.map((item)=>{
             return(
@@ -26,6 +30,7 @@ function CartModal({ toggle }) {
             )
         })}
       </div>
+      {/*showing total cost of the products */}
       <div className={styles.total}>
         <div className={styles.totalText}>Total</div>
         <div className={styles.totalPrice}>{total}</div>
